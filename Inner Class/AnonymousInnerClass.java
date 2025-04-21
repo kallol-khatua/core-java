@@ -12,7 +12,6 @@ abstract class Person {
     // static method can not be abstract
 
 
-
     void sleep() {              // concrete method
         System.out.println("Sleeping...");
     }
@@ -24,8 +23,13 @@ class Animal {
     protected void makeSound() {
         System.out.println("Animal sound");
     }
-}
 
+    // can not use private method from outside the class,
+    // can not override private method
+    private void a() {
+
+    }
+}
 
 
 // from interface
@@ -62,7 +66,7 @@ public class AnonymousInnerClass {
                 System.out.println("Animal sound object");
             }
         };
-//        a.makeSound();
+        a.makeSound();
 
 
         // from interface
