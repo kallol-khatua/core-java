@@ -35,7 +35,6 @@ public class class_9 {
         LongFunction<R>   in Long out any
         IntFunction<R>  in int out any
 
-
 // in and out both
         DoubleToIntFunction    in double out int
                             applyAsInt()
@@ -51,7 +50,6 @@ public class class_9 {
                             applyAsInt()
         LongToDoubleFunction     in long out double
                             applyAsDouble()
-
 
 //    in any out is specified
         ToDoubleFunction<T> in any out double
@@ -108,5 +106,45 @@ public class class_9 {
         IntSupplier         return int   getAsInt()
         LongSupplier     return long   getAsLong()
          */
+
+
+
+//        UnaryOperator
+        Function<Integer, Integer> f3 = i -> i * i;
+//        System.out.println(f3.apply(5));
+//        is input and output are same then can use UnaryOperator
+//        it is a child of Function<T, T>
+        UnaryOperator<Integer> uf1 = i -> i * i;
+//        System.out.println(uf1.apply(5));
+
+//        primitive Unary Operator
+        /*
+        IntUnaryOperator    applyAsInt()
+        LongUnaryOperator   applyAsLong()
+        DoubleUnaryOperator     applyAsDouble()
+         */
+        IntUnaryOperator uf2 = i -> i * i;
+//        System.out.println(uf2.applyAsInt(5));
+
+
+//        BinaryOperator
+//        it is child of BiFunction<T, T, T>
+        /*
+        BinaryOperator<T>
+            public T apply(T, T)
+         */
+        // primitive Binary Operator
+        /*
+        IntBinaryOperator    applyAsInt()
+        LongBinaryOperator   applyAsLong()
+        DoubleBinaryOperator     applyAsDouble()
+         */
+
+        IntUnaryOperator uf3 = i -> i + 1;
+        System.out.println(uf3.applyAsInt(4));
+        IntUnaryOperator uf4 = i -> i * i;
+        System.out.println(uf4.applyAsInt(4));
+        System.out.println(uf3.andThen(uf4).applyAsInt(4));
+
     }
 }
